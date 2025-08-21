@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Maximize2, RefreshCw } from 'lucide-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import { Project, getProjects } from '@/lib/supabase';
+import Image from 'next/image';
 
 
 export default function Gallery() {
@@ -18,11 +19,6 @@ export default function Gallery() {
   
   useEffect(() => {
     loadProjects();
-    
-    // Set up auto-refresh every 30 seconds to catch new projects
-    const interval = setInterval(loadProjects, 30000);
-    
-    return () => clearInterval(interval);
   }, []);
 
   const loadProjects = async () => {
@@ -139,11 +135,15 @@ export default function Gallery() {
             {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                delay: index * 0.05,
+                duration: 0.3
+              }}
               className="group cursor-pointer"
+              style={{ willChange: 'opacity, transform' }}
               onClick={(e) => {
                 if (!isDragging) {
                   setSelectedProject(project);

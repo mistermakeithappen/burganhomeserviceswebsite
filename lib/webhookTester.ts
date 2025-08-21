@@ -1,4 +1,4 @@
-import { WebhookFormatter } from './webhookFormatter';
+import { WebhookFormatter, WebhookPayload } from './webhookFormatter';
 import { WebhookSubmission } from './webhookSubmission';
 
 /**
@@ -127,7 +127,7 @@ export class WebhookTester {
   /**
    * Tests webhook formatting without sending
    */
-  static testFormatting(serviceId: string): void {
+  static testFormatting(serviceId: string): WebhookPayload {
     const sampleData = this.generateSampleData(serviceId);
     const serviceName = this.getServiceName(serviceId);
     

@@ -1,4 +1,4 @@
-interface WebhookPayload {
+export interface WebhookPayload {
   // Meta information
   meta: {
     timestamp: string;

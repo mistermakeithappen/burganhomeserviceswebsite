@@ -22,7 +22,7 @@ interface Crop {
   y: number;
   width: number;
   height: number;
-  unit?: 'px' | '%';
+  unit: 'px' | '%';
 }
 
 interface PixelCrop extends Crop {
@@ -45,8 +45,8 @@ export default function ProjectUpload({ onSave }: ProjectUploadProps) {
   const [afterImage, setAfterImage] = useState<string>('');
   const [beforeFile, setBeforeFile] = useState<File | null>(null);
   const [afterFile, setAfterFile] = useState<File | null>(null);
-  const [beforeCrop, setBeforeCrop] = useState<Crop>();
-  const [afterCrop, setAfterCrop] = useState<Crop>();
+  const [beforeCrop, setBeforeCrop] = useState<Crop | undefined>();
+  const [afterCrop, setAfterCrop] = useState<Crop | undefined>();
   const [cropMode, setCropMode] = useState<'before' | 'after' | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -320,7 +320,7 @@ export default function ProjectUpload({ onSave }: ProjectUploadProps) {
                 <div className="space-y-4">
                   <ReactCrop
                     crop={beforeCrop}
-                    onChange={(c) => setBeforeCrop(c)}
+                    onChange={(c) => setBeforeCrop(c ? { ...c, unit: c.unit || '%' } : undefined)}
                     aspect={4/3}
                   >
                     <img
@@ -412,7 +412,7 @@ export default function ProjectUpload({ onSave }: ProjectUploadProps) {
                 <div className="space-y-4">
                   <ReactCrop
                     crop={afterCrop}
-                    onChange={(c) => setAfterCrop(c)}
+                    onChange={(c) => setAfterCrop(c ? { ...c, unit: c.unit || '%' } : undefined)}
                     aspect={4/3}
                   >
                     <img

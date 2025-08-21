@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
 const reviews = [
@@ -262,6 +262,21 @@ const reviews = [
 export default function ReviewsSlider() {
   // Create extended array for seamless looping
   const extendedReviews = [...reviews, ...reviews];
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { margin: "50px" });
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   return (
     <section className="py-16 bg-gradient-to-r from-indigo-50 via-white to-blue-50 overflow-hidden">
@@ -287,22 +302,23 @@ export default function ReviewsSlider() {
         </motion.div>
 
         {/* Flowing Review Ribbon */}
-        <div className="relative h-56 overflow-hidden">
+        <div ref={containerRef} className="relative h-56 overflow-hidden">
           <motion.div
             className="flex space-x-6 h-full"
-            animate={{
+            animate={!prefersReducedMotion && isInView ? {
               x: [0, -100 * reviews.length]
-            }}
+            } : {}}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: reviews.length * 5.12, // 5.12 seconds per review (40% faster than original)
+                duration: reviews.length * 5.12,
                 ease: "linear"
               }
             }}
             style={{
-              width: `${extendedReviews.length * 400}px` // 400px per card
+              width: `${extendedReviews.length * 400}px`,
+              willChange: isInView ? 'transform' : 'auto'
             }}
           >
             {extendedReviews.map((review, index) => (
