@@ -1,15 +1,24 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: true
+const createSupabaseClient = () => {
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('Supabase environment variables are not configured')
+    return null
   }
-})
+  
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true
+    }
+  })
+}
+
+export const supabase = createSupabaseClient()
 
 export interface Project {
   id: string
@@ -25,6 +34,10 @@ export interface Project {
 
 // Upload image to Supabase Storage
 export const uploadImage = async (file: File, bucket: string, fileName: string): Promise<string> => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { data, error } = await supabase.storage
     .from(bucket)
     .upload(fileName, file, {
@@ -37,7 +50,7 @@ export const uploadImage = async (file: File, bucket: string, fileName: string):
   }
 
   // Get public URL
-  const { data: { publicUrl } } = supabase.storage
+  const { data: { publicUrl } } = supabase!.storage
     .from(bucket)
     .getPublicUrl(fileName)
 
@@ -46,6 +59,11 @@ export const uploadImage = async (file: File, bucket: string, fileName: string):
 
 // Get all projects
 export const getProjects = async (): Promise<Project[]> => {
+  if (!supabase) {
+    console.warn('Supabase client is not initialized')
+    return []
+  }
+  
   const { data, error } = await supabase
     .from('projects')
     .select('*')
@@ -60,6 +78,10 @@ export const getProjects = async (): Promise<Project[]> => {
 
 // Create new project
 export const createProject = async (project: Omit<Project, 'id' | 'created_at' | 'updated_at'>): Promise<Project> => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { data, error } = await supabase
     .from('projects')
     .insert([{
@@ -79,6 +101,10 @@ export const createProject = async (project: Omit<Project, 'id' | 'created_at' |
 
 // Delete project
 export const deleteProject = async (id: string): Promise<void> => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { error } = await supabase
     .from('projects')
     .delete()
@@ -91,6 +117,10 @@ export const deleteProject = async (id: string): Promise<void> => {
 
 // Delete image from storage
 export const deleteImage = async (bucket: string, fileName: string): Promise<void> => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { error } = await supabase.storage
     .from(bucket)
     .remove([fileName])
@@ -102,6 +132,10 @@ export const deleteImage = async (bucket: string, fileName: string): Promise<voi
 
 // Auth functions
 export const signInWithEmail = async (email: string, password: string) => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -115,6 +149,10 @@ export const signInWithEmail = async (email: string, password: string) => {
 }
 
 export const signOut = async () => {
+  if (!supabase) {
+    throw new Error('Supabase client is not initialized')
+  }
+  
   const { error } = await supabase.auth.signOut()
   
   if (error) {
@@ -123,6 +161,10 @@ export const signOut = async () => {
 }
 
 export const getCurrentUser = async () => {
+  if (!supabase) {
+    return null
+  }
+  
   const { data: { user }, error } = await supabase.auth.getUser()
   
   if (error) {
@@ -133,6 +175,10 @@ export const getCurrentUser = async () => {
 }
 
 export const getSession = async () => {
+  if (!supabase) {
+    return null
+  }
+  
   const { data: { session }, error } = await supabase.auth.getSession()
   
   if (error) {
