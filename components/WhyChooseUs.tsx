@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
             Chooses Burgan
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            From the horse-and-buggy days to smart homes, we've been your neighbors' trusted choice since 1873
+            From the horse-and-buggy days to smart homes, we&apos;ve been your neighbors&apos; trusted choice since 1873
           </p>
         </motion.div>
 
@@ -84,13 +84,13 @@ export default function WhyChooseUs() {
               </div>
               
               <p className="text-blue-100 text-lg leading-relaxed mb-6">
-                What started as a small family carpentry shop has grown into Spokane's most trusted home services company. 
-                We've weathered recessions, world wars, and economic booms - always staying true to our commitment to quality and integrity.
+                What started as a small family carpentry shop has grown into Spokane&apos;s most trusted home services company. 
+                We&apos;ve weathered recessions, world wars, and economic booms - always staying true to our commitment to quality and integrity.
               </p>
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-400">50,000+</div>
+                  <div className="text-3xl font-bold text-yellow-400">3,500+</div>
                   <div className="text-sm text-blue-200">Homes Served</div>
                 </div>
                 <div className="text-center">
@@ -232,7 +232,7 @@ export default function WhyChooseUs() {
           className="text-center bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl p-12 shadow-2xl"
         >
           <Wrench className="w-20 h-20 text-white mx-auto mb-6" />
-          <h3 className="text-4xl font-bold text-white mb-4">Ready to Join 50,000+ Happy Neighbors?</h3>
+          <h3 className="text-4xl font-bold text-white mb-4">Ready to Join 3,500+ Happy Neighbors?</h3>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Experience the Burgan difference that Spokane families have trusted for over a century
           </p>
@@ -241,20 +241,27 @@ export default function WhyChooseUs() {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const servicesSection = document.getElementById('services');
+                if (servicesSection) {
+                  servicesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-white text-orange-500 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all"
             >
               Get Your Free Quote
               <Zap className="w-5 h-5 inline ml-2" />
             </motion.button>
             
-            <motion.button 
+            <motion.a 
+              href="tel:5099552545"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-orange-500 transition-all"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-orange-500 transition-all inline-flex items-center justify-center"
             >
               Call (509) 955-2545
               <PhoneCall className="w-5 h-5 inline ml-2" />
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

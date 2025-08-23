@@ -122,9 +122,13 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <button className="bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors">
+          <a 
+            href="https://www.google.com/search?q=burgan+home+services+spokane+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors">
             Read More Reviews
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

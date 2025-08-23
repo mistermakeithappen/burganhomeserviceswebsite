@@ -12,6 +12,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react';
+import { useWebhookSubmission } from '@/lib/webhookSubmission';
 
 type FormData = {
   firstName: string;
@@ -28,18 +29,41 @@ type FormData = {
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const { submitForm } = useWebhookSubmission();
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
   
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log(data);
-    setSubmitStatus('success');
-    setIsSubmitting(false);
-    reset();
-    setTimeout(() => setSubmitStatus('idle'), 5000);
+    setSubmitStatus('idle');
+    
+    try {
+      // Submit to webhook with 'general-inquiry' as the service type
+      const response = await submitForm('general-inquiry', {
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        message: data.message,
+        budget: data.budget,
+        urgency: data.urgency,
+        preferredContact: data.preferredContact
+      });
+      
+      if (response.success) {
+        setSubmitStatus('success');
+        reset();
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        console.error('Form submission failed:', response.error);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -235,7 +259,7 @@ export default function ContactForm() {
                     <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5" />
                     <div>
                       <p className="font-semibold text-green-800">Success!</p>
-                      <p className="text-green-700 text-sm">We've received your request and will contact you within 24 hours.</p>
+                      <p className="text-green-700 text-sm">We&apos;ve received your request and will contact you within 24 hours.</p>
                     </div>
                   </motion.div>
                 )}

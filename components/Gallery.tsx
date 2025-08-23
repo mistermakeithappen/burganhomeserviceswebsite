@@ -19,6 +19,7 @@ export default function Gallery() {
   
   useEffect(() => {
     loadProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadProjects = async () => {
@@ -91,7 +92,7 @@ export default function Gallery() {
             Before & After Gallery
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See the incredible transformations we've completed for Spokane area homeowners
+            See the incredible transformations we&apos;ve completed for Spokane area homeowners
           </p>
           
           {loadError && (

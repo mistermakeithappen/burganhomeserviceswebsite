@@ -95,11 +95,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-8">
-              <img 
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-8 aspect-square">
+              <Image 
                 src="https://storage.googleapis.com/msgsndr/VgOeEyKgYl9vAS8IcFLx/media/67e444242be3f74115223ec7.svg"
                 alt="Burgan Home Services Logo"
-                className="w-full h-auto"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             

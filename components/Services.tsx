@@ -175,9 +175,16 @@ export default function Services() {
           viewport={{ once: true }}
           className="mt-12 bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-2xl p-8 text-white text-center"
         >
-          <h3 className="text-2xl font-bold mb-4">Can't find what you need?</h3>
+          <h3 className="text-2xl font-bold mb-4">Can&apos;t find what you need?</h3>
           <p className="mb-6">We offer custom solutions for unique projects. Tell us what you need!</p>
-          <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+          <button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
             Contact Us for Custom Work
           </button>
         </motion.div>

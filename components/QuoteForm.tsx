@@ -282,7 +282,7 @@ export default function QuoteForm({ serviceId, onClose }: QuoteFormProps) {
                 <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
                 <p className="text-blue-200">
-                  We've received your quote request and will contact you within 24 hours.
+                  We&apos;ve received your quote request and will contact you within 24 hours.
                 </p>
               </motion.div>
             ) : (
