@@ -47,7 +47,7 @@ interface GMBStats {
 export default function GoogleBusinessManager() {
   const [businessInfo, setBusinessInfo] = useState<BusinessInfo>({
     name: 'Burgan Home Services',
-    address: '123 Main Street, Spokane, WA 99201',
+    address: 'PO BOX 71, Greenacres, WA 99016',
     phone: '(509) 955-2545',
     website: 'https://burganhomeservices.com',
     hours: {

@@ -19,8 +19,8 @@ export async function sendContactEmail(data: ContactFormData) {
   
   try {
     const { data: emailData, error } = await resend.emails.send({
-      from: 'Burgan Home Services <noreply@burganhomeservices.com>',
-      to: process.env.CONTACT_EMAIL || 'contact@burganhomeservices.com',
+      from: 'Burgan Home Services <infoburganhomeservices@gmail.com>',
+      to: process.env.CONTACT_EMAIL || 'infoburganhomeservices@gmail.com',
       replyTo: data.email,
       subject: `New Contact Form Submission from ${data.name}`,
       react: ContactEmail(data),
@@ -56,8 +56,8 @@ export async function sendQuoteEmail(data: QuoteFormData) {
   
   try {
     const { data: emailData, error } = await resend.emails.send({
-      from: 'Burgan Home Services <noreply@burganhomeservices.com>',
-      to: process.env.QUOTE_EMAIL || 'quotes@burganhomeservices.com',
+      from: 'Burgan Home Services <infoburganhomeservices@gmail.com>',
+      to: process.env.QUOTE_EMAIL || 'infoburganhomeservices@gmail.com',
       replyTo: data.email,
       subject: `New Quote Request from ${data.name} - ${data.service}`,
       react: QuoteEmail(data),

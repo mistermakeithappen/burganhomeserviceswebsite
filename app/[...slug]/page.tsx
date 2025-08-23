@@ -38,8 +38,8 @@ export async function generateStaticParams() {
   const paths = [];
   
   // Generate paths for top priority combinations
-  const priorityServices = ['bathroom-remodeling', 'kitchen-remodeling', 'interior-painting', 'exterior-painting', 'handyman-services'];
-  const priorityLocations = ['spokane-wa', 'spokane-valley-wa', 'liberty-lake-wa', 'south-hill-spokane', 'north-side-spokane'];
+  const priorityServices = ['bathroom-remodeling', 'kitchen-remodeling', 'interior-painting', 'exterior-painting', 'handyman-services', 'home-repairs', 'trim-painting'];
+  const priorityLocations = ['spokane-wa', 'spokane-valley-wa', 'liberty-lake-wa', 'south-hill-spokane', 'north-side-spokane', 'deer-park-wa', 'cheney-wa'];
   
   for (const serviceSlug of priorityServices) {
     for (const locationSlug of priorityLocations) {

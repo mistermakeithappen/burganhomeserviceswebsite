@@ -68,7 +68,7 @@ export default function AdminLogin() {
                 value={credentials.email}
                 onChange={(e) => setCredentials({...credentials, email: e.target.value})}
                 className="w-full pl-12 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                placeholder="admin@burganhomeservices.com"
+                placeholder="infoburganhomeservices@gmail.com"
                 required
               />
             </div>

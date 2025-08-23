@@ -88,8 +88,20 @@ export default function LocationServicePageTemplate({ service, location }: Locat
       />
       
       {/* Hero Section with Location Focus */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 lg:py-32">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-20 lg:py-32 overflow-hidden">
+        {/* Service-specific background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={service.heroImage}
+            alt={`${service.shortTitle} background`}
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-900/90 to-indigo-900/90"></div>
+        </div>
+        
+        <div className="absolute inset-0 opacity-20 z-[1]">
           <div className="absolute top-20 left-10 w-64 h-64 bg-yellow-400 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
         </div>
@@ -167,40 +179,6 @@ export default function LocationServicePageTemplate({ service, location }: Locat
                   <div className="text-sm text-blue-200">Local Rating</div>
                 </div>
               </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                <Image
-                  src={service.heroImage}
-                  alt={`${service.shortTitle} in ${location.name}`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              
-              {/* Location Badge */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, type: "spring" }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <Navigation className="w-10 h-10 text-indigo-500" />
-                  <div>
-                    <div className="font-bold text-slate-900">{location.name}</div>
-                    <div className="text-sm text-gray-600">{location.county}</div>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>

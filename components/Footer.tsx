@@ -173,17 +173,17 @@ export default function Footer() {
                 <span>(509) 955-2545</span>
               </a>
               <a 
-                href="mailto:info@burganhomeservices.com"
+                href="mailto:infoburganhomeservices@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-yellow-400 transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                <span>info@burganhomeservices.com</span>
+                <span>infoburganhomeservices@gmail.com</span>
               </a>
               <div className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                 <div>
-                  <p>123 Main Street</p>
-                  <p>Spokane, WA 99201</p>
+                  <p>PO BOX 71</p>
+                  <p>Greenacres, WA 99016</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
@@ -209,7 +209,7 @@ export default function Footer() {
               { service: 'handyman-services', location: 'south-hill-spokane', label: 'Handyman Services on South Hill' },
               { service: 'exterior-painting', location: 'north-side-spokane', label: 'Exterior Painting on North Side' },
               { service: 'trim-painting', location: 'cheney-wa', label: 'Trim Painting in Cheney' },
-              { service: 'repairs', location: 'deer-park-wa', label: 'Home Repairs in Deer Park' },
+              { service: 'home-repairs', location: 'deer-park-wa', label: 'Home Repairs in Deer Park' },
               { service: 'bathroom-remodeling', location: 'south-hill-spokane', label: 'Bathroom Remodeling on South Hill' },
             ].map((combo, index) => (
               <Link

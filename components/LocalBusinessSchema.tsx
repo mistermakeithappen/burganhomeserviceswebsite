@@ -8,13 +8,13 @@ export default function LocalBusinessSchema() {
     "description": "Professional home services contractor in Spokane, WA. Specializing in painting, remodeling, roofing, handyman services, and more. Serving families since 1873. Licensed, bonded, and insured.",
     "url": "https://burganhomeservices.com",
     "telephone": "+1-509-955-2545",
-    "email": "info@burganhomeservices.com",
+    "email": "infoburganhomeservices@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Main Street",
-      "addressLocality": "Spokane",
+      "streetAddress": "PO BOX 71",
+      "addressLocality": "Greenacres",
       "addressRegion": "WA",
-      "postalCode": "99201",
+      "postalCode": "99016",
       "addressCountry": "US"
     },
     "geo": {
