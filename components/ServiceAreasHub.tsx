@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { getAllLocations, getLocationsByType } from '@/lib/locationData';
 import { getAllServices } from '@/lib/serviceData';
+import ServiceAreaChecker from '@/components/ServiceAreaChecker';
 
 export default function ServiceAreasHub() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -74,18 +75,10 @@ export default function ServiceAreasHub() {
               Find quality contractors in your neighborhood with fast response times.
             </p>
             
-            {/* Search Bar */}
-            <div className="max-w-2xl mx-auto">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search by city, neighborhood, or ZIP code..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
-                />
-              </div>
+            {/* Service Area Checker */}
+            <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-white mb-4 text-center">Check if We Service Your Address</h3>
+              <ServiceAreaChecker />
             </div>
             
             {/* Quick Stats */}

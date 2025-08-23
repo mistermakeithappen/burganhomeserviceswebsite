@@ -72,7 +72,7 @@ export function NearbyLocations({ currentLocation, locations, service }: NearbyL
         {nearbyLocations.map(location => (
           <Link
             key={location.id}
-            href={service ? `/${service.slug}-${location.slug}` : `/service-areas/${location.slug}`}
+            href={service ? `/${service.slug}-${location.slug}` : `/handyman-services-${location.slug}`}
             className="group flex items-center justify-between bg-white rounded-lg p-3 hover:shadow-md transition-all"
           >
             <div>

@@ -52,7 +52,7 @@ export default function Footer() {
               <Star className="w-8 h-8 text-orange-400" />
               <div>
                 <div className="font-semibold">5-Star Rated</div>
-                <div className="text-sm text-gray-400">500+ Reviews</div>
+                <div className="text-sm text-gray-400">150+ Reviews</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -124,7 +124,7 @@ export default function Footer() {
               {primaryLocations.map(location => (
                 <li key={location.id}>
                   <Link 
-                    href={`/service-areas/${location.slug}`}
+                    href={`/handyman-services-${location.slug}`}
                     className="text-gray-400 hover:text-yellow-400 transition-colors flex items-center group"
                   >
                     <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -150,7 +150,7 @@ export default function Footer() {
               {neighborhoods.map(location => (
                 <li key={location.id}>
                   <Link 
-                    href={`/service-areas/${location.slug}`}
+                    href={`/handyman-services-${location.slug}`}
                     className="text-gray-400 hover:text-yellow-400 transition-colors flex items-center group"
                   >
                     <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity" />

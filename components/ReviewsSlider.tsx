@@ -288,7 +288,7 @@ export default function ReviewsSlider() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-            Trusted by 500+ Spokane Area Families
+            Trusted by 150+ Spokane Area Families
           </h2>
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center">

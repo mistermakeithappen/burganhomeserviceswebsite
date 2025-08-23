@@ -525,6 +525,416 @@ export const locationsData: Record<string, LocationData> = {
     zipCodes: ['99201'],
     description: 'Kendall Yards is Spokane\'s premier urban village, offering sustainable living with modern amenities along the Spokane River. This walkable community features new construction and high-end finishes.',
     metaDescription: 'Modern home services in Kendall Yards Spokane. Contemporary remodeling, eco-friendly improvements, urban living solutions. Your local expert since 1873.'
+  },
+  'millwood': {
+    id: 'millwood',
+    slug: 'millwood-wa',
+    name: 'Millwood',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 1786,
+    type: 'suburb',
+    coordinates: {
+      lat: 47.6830,
+      lng: -117.2808
+    },
+    distance: 7,
+    responseTime: '30-60 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Small town charm with suburban convenience',
+      'Mix of older and newer homes requiring varied services',
+      'Family-oriented community with home improvement focus',
+      'Proximity to Spokane Valley for quick service'
+    ],
+    popularServices: [
+      'handyman-services',
+      'interior-painting',
+      'kitchen-remodeling',
+      'home-repairs'
+    ],
+    landmarks: [
+      'Millwood City Hall',
+      'Millwood Community Presbyterian Church',
+      'Argonne Village Shopping'
+    ],
+    zipCodes: ['99212'],
+    description: 'Millwood offers small-town living with easy access to Spokane Valley amenities. This close-knit community features affordable homes perfect for growing families.',
+    metaDescription: 'Home services in Millwood, WA. Reliable handyman, painting, and remodeling services. Your trusted local contractor serving Millwood since 1873.'
+  },
+  'otis-orchards': {
+    id: 'otis-orchards',
+    slug: 'otis-orchards-wa',
+    name: 'Otis Orchards',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 4845,
+    type: 'suburb',
+    coordinates: {
+      lat: 47.7073,
+      lng: -117.0798
+    },
+    distance: 12,
+    responseTime: '45-75 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Rural suburban community with larger properties',
+      'Many homes with acreage requiring extensive maintenance',
+      'Growing area with new construction opportunities',
+      'Residents value quality work and reliability'
+    ],
+    popularServices: [
+      'exterior-painting',
+      'handyman-services',
+      'home-repairs',
+      'bathroom-remodeling'
+    ],
+    landmarks: [
+      'East Valley School District',
+      'Otis Orchards Community Park',
+      'Liberty Lake Regional Park nearby'
+    ],
+    zipCodes: ['99027'],
+    description: 'Otis Orchards combines rural living with suburban amenities. Larger properties and growing families create steady demand for home improvement services.',
+    metaDescription: 'Professional home services in Otis Orchards, WA. Exterior painting, repairs, and remodeling for rural suburban homes. Trusted since 1873.'
+  },
+  'mead': {
+    id: 'mead',
+    slug: 'mead-wa',
+    name: 'Mead',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 7795,
+    type: 'suburb',
+    coordinates: {
+      lat: 47.7596,
+      lng: -117.3547
+    },
+    distance: 10,
+    responseTime: '40-70 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Growing suburban area north of Spokane',
+      'Mix of established and new neighborhoods',
+      'Excellent schools attract family-focused improvements',
+      'Larger lots with room for additions and expansions'
+    ],
+    popularServices: [
+      'kitchen-remodeling',
+      'bathroom-remodeling',
+      'interior-painting',
+      'handyman-services'
+    ],
+    landmarks: [
+      'Mead High School',
+      'Mt. Spokane',
+      'Northpointe Plaza'
+    ],
+    zipCodes: ['99021'],
+    description: 'Mead is a thriving suburban community north of Spokane known for excellent schools and family-friendly neighborhoods. Growing area with strong demand for quality home services.',
+    metaDescription: 'Home improvement services in Mead, WA. Kitchen and bath remodeling, painting, and repairs. Your neighborhood contractor since 1873.'
+  },
+  'downtown-spokane': {
+    id: 'downtown-spokane',
+    slug: 'downtown-spokane-wa',
+    name: 'Downtown Spokane',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 12500,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6587,
+      lng: -117.4260
+    },
+    distance: 8,
+    responseTime: '30-60 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Historic buildings requiring specialized restoration',
+      'Growing loft and condo conversion market',
+      'Urban professionals seeking modern updates',
+      'Commercial and residential mix'
+    ],
+    popularServices: [
+      'interior-painting',
+      'bathroom-remodeling',
+      'kitchen-remodeling',
+      'handyman-services'
+    ],
+    landmarks: [
+      'Riverfront Park',
+      'Steam Plant Square',
+      'Davenport Hotel',
+      'River Park Square'
+    ],
+    zipCodes: ['99201', '99204'],
+    description: 'Downtown Spokane\'s urban core features historic buildings, modern condos, and loft conversions. Specialized services for unique urban living spaces.',
+    metaDescription: 'Downtown Spokane home services. Loft renovations, condo updates, historic restorations. Urban living experts since 1873.'
+  },
+  'brownes-addition': {
+    id: 'brownes-addition',
+    slug: 'brownes-addition-spokane',
+    name: "Browne's Addition",
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 3200,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6474,
+      lng: -117.4338
+    },
+    distance: 9,
+    responseTime: '30-60 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Historic district with Victorian-era homes',
+      'Preservation-minded residents',
+      'Artistic community valuing craftsmanship',
+      'Older homes requiring specialized knowledge'
+    ],
+    popularServices: [
+      'interior-painting',
+      'trim-painting',
+      'home-repairs',
+      'bathroom-remodeling'
+    ],
+    landmarks: [
+      'Coeur d\'Alene Park',
+      'Campbell House',
+      'MAC Museum',
+      'Historic Browne\'s Addition'
+    ],
+    zipCodes: ['99204'],
+    description: 'Browne\'s Addition is Spokane\'s oldest neighborhood, featuring beautifully preserved Victorian homes. Residents value quality craftsmanship and historical accuracy.',
+    metaDescription: 'Historic home services in Browne\'s Addition Spokane. Victorian restoration, careful updates, preservation expertise. Trusted since 1873.'
+  },
+  'manito-cannon-hill': {
+    id: 'manito-cannon-hill',
+    slug: 'manito-cannon-hill-spokane',
+    name: 'Manito/Cannon Hill',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 8500,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6320,
+      lng: -117.4100
+    },
+    distance: 5,
+    responseTime: '20-45 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Desirable South Hill neighborhood',
+      'Well-maintained craftsman homes',
+      'Park-adjacent properties with premium values',
+      'Quality-conscious homeowners'
+    ],
+    popularServices: [
+      'kitchen-remodeling',
+      'bathroom-remodeling',
+      'interior-painting',
+      'exterior-painting'
+    ],
+    landmarks: [
+      'Manito Park',
+      'Cannon Hill Park',
+      'Comstock Park',
+      'Lincoln Heights Shopping'
+    ],
+    zipCodes: ['99203', '99204'],
+    description: 'Manito/Cannon Hill features beautiful parks, craftsman homes, and tree-lined streets. One of Spokane\'s most desirable neighborhoods for families.',
+    metaDescription: 'Premium home services in Manito/Cannon Hill Spokane. Kitchen and bath remodeling, expert painting. South Hill\'s trusted contractor since 1873.'
+  },
+  'cliff-cannon': {
+    id: 'cliff-cannon',
+    slug: 'cliff-cannon-spokane',
+    name: 'Cliff/Cannon',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 4200,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6400,
+      lng: -117.4050
+    },
+    distance: 4,
+    responseTime: '20-40 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Mix of historic and mid-century homes',
+      'Medical district proximity',
+      'Professional residents seeking updates',
+      'Walkable neighborhood with urban amenities'
+    ],
+    popularServices: [
+      'interior-painting',
+      'bathroom-remodeling',
+      'handyman-services',
+      'kitchen-remodeling'
+    ],
+    landmarks: [
+      'Sacred Heart Medical Center',
+      'Lower South Hill',
+      'Cliff Park'
+    ],
+    zipCodes: ['99204'],
+    description: 'Cliff/Cannon neighborhood offers urban convenience with residential charm. Close to hospitals and downtown with diverse housing styles.',
+    metaDescription: 'Home services in Cliff/Cannon Spokane. Interior updates, remodeling, and repairs. Your neighborhood contractor since 1873.'
+  },
+  'lincoln-heights': {
+    id: 'lincoln-heights',
+    slug: 'lincoln-heights-spokane',
+    name: 'Lincoln Heights',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 6800,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6250,
+      lng: -117.3950
+    },
+    distance: 3,
+    responseTime: '15-35 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Established South Hill neighborhood',
+      'Shopping district convenience',
+      'Mix of vintage and updated homes',
+      'Strong community identity'
+    ],
+    popularServices: [
+      'handyman-services',
+      'interior-painting',
+      'home-repairs',
+      'bathroom-remodeling'
+    ],
+    landmarks: [
+      'Lincoln Heights Shopping Center',
+      'Lincoln Park',
+      '29th Avenue commercial district'
+    ],
+    zipCodes: ['99203'],
+    description: 'Lincoln Heights combines residential comfort with commercial convenience on Spokane\'s South Hill. Established neighborhood with steady renovation demand.',
+    metaDescription: 'Lincoln Heights Spokane home services. Handyman, painting, repairs, and remodeling. Your local South Hill contractor since 1873.'
+  },
+  'garland-district': {
+    id: 'garland-district',
+    slug: 'garland-district-spokane',
+    name: 'Garland District',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 7200,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.6900,
+      lng: -117.4100
+    },
+    distance: 6,
+    responseTime: '25-50 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Vintage North Spokane neighborhood',
+      'Arts and entertainment district',
+      'Affordable homes attracting young families',
+      'Historic commercial corridor'
+    ],
+    popularServices: [
+      'interior-painting',
+      'handyman-services',
+      'home-repairs',
+      'kitchen-remodeling'
+    ],
+    landmarks: [
+      'Garland Theater',
+      'Garland Avenue shops',
+      'Audubon Park'
+    ],
+    zipCodes: ['99205'],
+    description: 'The Garland District offers vintage charm, local businesses, and affordable homes. Popular with young families and first-time homebuyers.',
+    metaDescription: 'Garland District Spokane home services. Affordable updates, repairs, and improvements. North Spokane\'s trusted contractor since 1873.'
+  },
+  'nevada-lidgerwood': {
+    id: 'nevada-lidgerwood',
+    slug: 'nevada-lidgerwood-spokane',
+    name: 'Nevada/Lidgerwood',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 9500,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.7000,
+      lng: -117.3900
+    },
+    distance: 7,
+    responseTime: '30-55 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Working-class North Spokane neighborhood',
+      'Affordable housing stock',
+      'Growing investment area',
+      'Mix of owner-occupied and rental properties'
+    ],
+    popularServices: [
+      'home-repairs',
+      'handyman-services',
+      'exterior-painting',
+      'interior-painting'
+    ],
+    landmarks: [
+      'Nevada Street commercial area',
+      'Lidgerwood Elementary',
+      'Dutch Jake Park'
+    ],
+    zipCodes: ['99207'],
+    description: 'Nevada/Lidgerwood is an affordable North Spokane neighborhood seeing increased investment. Great opportunity area for home improvements.',
+    metaDescription: 'Nevada/Lidgerwood Spokane home services. Affordable repairs, painting, and updates. Your neighborhood contractor since 1873.'
+  },
+  'five-mile': {
+    id: 'five-mile',
+    slug: 'five-mile-spokane',
+    name: 'Five Mile',
+    state: 'Washington',
+    stateAbbr: 'WA',
+    county: 'Spokane County',
+    population: 5600,
+    type: 'neighborhood',
+    coordinates: {
+      lat: 47.7200,
+      lng: -117.4500
+    },
+    distance: 9,
+    responseTime: '35-60 minutes',
+    serviceAvailability: 'primary',
+    localInsights: [
+      'Northwest Spokane residential area',
+      'Prairie-style neighborhood development',
+      'Family-oriented community',
+      'Newer construction mixed with established homes'
+    ],
+    popularServices: [
+      'handyman-services',
+      'interior-painting',
+      'bathroom-remodeling',
+      'kitchen-remodeling'
+    ],
+    landmarks: [
+      'Five Mile Shopping Center',
+      'Five Mile Prairie',
+      'Indian Trail Elementary'
+    ],
+    zipCodes: ['99208'],
+    description: 'Five Mile area offers suburban living within Spokane city limits. Family-friendly neighborhood with good schools and shopping.',
+    metaDescription: 'Five Mile Spokane home services. Kitchen and bath updates, painting, handyman work. Northwest Spokane\'s trusted contractor since 1873.'
   }
 };
 

@@ -38,7 +38,7 @@ export default function Hero() {
                 <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                 <span className="ml-2 font-semibold">5.0</span>
-                <span className="ml-2 text-gray-400">500+ Reviews</span>
+                <span className="ml-2 text-gray-400">150+ Reviews</span>
               </div>
             </div>
             

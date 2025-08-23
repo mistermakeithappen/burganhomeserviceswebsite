@@ -78,7 +78,7 @@ export default function Testimonials() {
               ))}
             </div>
             <span className="text-2xl font-bold text-slate-900">4.9/5</span>
-            <span className="text-gray-600">from 500+ reviews</span>
+            <span className="text-gray-600">from 150+ reviews</span>
           </div>
         </motion.div>
         
