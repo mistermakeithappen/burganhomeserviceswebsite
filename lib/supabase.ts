@@ -20,6 +20,11 @@ const createSupabaseClient = () => {
 
 export const supabase = createSupabaseClient()
 
+// Export a function to get client for server components
+export const getSupabaseClient = () => {
+  return supabase
+}
+
 export interface Project {
   id: string
   title: string

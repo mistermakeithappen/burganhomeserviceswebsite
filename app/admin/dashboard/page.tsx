@@ -26,7 +26,7 @@ import ProjectUpload from '@/components/admin/ProjectUpload';
 import ProjectList from '@/components/admin/ProjectList';
 import ReviewManager from '@/components/admin/ReviewManager';
 import GoogleBusinessManager from '@/components/admin/GoogleBusinessManager';
-import BlogManager from '@/components/admin/BlogManager';
+import BlogEditorWYSIWYG from '@/components/admin/BlogEditorWYSIWYG';
 import SEODashboard from '@/components/admin/SEODashboard';
 import { Project, getProjects, getSession, signOut } from '@/lib/supabase';
 
@@ -296,7 +296,7 @@ export default function AdminDashboard() {
           )}
           
           {activeTab === 'blog' && (
-            <BlogManager />
+            <BlogEditorWYSIWYG />
           )}
           
           {activeTab === 'seo' && (

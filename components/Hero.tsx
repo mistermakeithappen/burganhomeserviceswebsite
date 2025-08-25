@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white overflow-hidden pt-24">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
       
       <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">

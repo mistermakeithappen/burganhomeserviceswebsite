@@ -3,54 +3,55 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
+// Actual customer testimonials from Angi and review platforms
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: 'Nicole V.',
     location: 'Spokane, WA',
     rating: 5,
-    text: 'Burgan Home Services transformed our outdated kitchen into a modern masterpiece. Their attention to detail and professionalism exceeded our expectations. Highly recommend!',
-    service: 'Kitchen Remodeling',
-    image: 'SJ'
+    text: 'Brandon and his team painted the entire exterior of our house, upgraded electrical systems, and did waterproofing work. Fair prices, good workmanship, friendly and professional team!',
+    service: 'Exterior Painting & Electrical',
+    image: 'NV'
   },
   {
-    name: 'Michael Chen',
+    name: 'Vicki Merrill',
     location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'After the wind storm, they repaired our roof quickly and dealt with insurance directly. Stress-free experience from start to finish. True professionals!',
-    service: 'Roof Repair',
-    image: 'MC'
+    text: 'Nearly 100-year-old home - prep work was thorough and the paint job was excellent. The crew was polite, respectful, and did great cleanup. Great attention to detail!',
+    service: 'Trim Painting',
+    image: 'VM'
   },
   {
-    name: 'Emily Rodriguez',
-    location: 'Coeur d\'Alene, ID',
-    rating: 5,
-    text: 'They painted our entire house interior in just 3 days. Clean, efficient, and the results are stunning. Will definitely use them again!',
-    service: 'Interior Painting',
-    image: 'ER'
-  },
-  {
-    name: 'David Thompson',
-    location: 'Post Falls, ID',
-    rating: 5,
-    text: 'Built us a beautiful deck that has become our favorite spot. Quality materials, expert craftsmanship, and finished ahead of schedule.',
-    service: 'Deck Building',
-    image: 'DT'
-  },
-  {
-    name: 'Lisa Anderson',
-    location: 'Liberty Lake, WA',
-    rating: 5,
-    text: 'Emergency plumbing issue on a Sunday - they came within an hour! Fixed the problem quickly and charged a fair price. Lifesavers!',
-    service: 'Plumbing',
-    image: 'LA'
-  },
-  {
-    name: 'Robert Martinez',
+    name: 'Sandi S.',
     location: 'Spokane, WA',
     rating: 5,
-    text: 'Complete bathroom renovation done perfectly. They helped with design choices and the result is magazine-worthy. Couldn\'t be happier!',
-    service: 'Bathroom Remodel',
-    image: 'RM'
+    text: 'Brandon and Alex installed an overhead cabinet in my laundry room. Very happy with the end results and will definitely use this company again.',
+    service: 'Handyman Service',
+    image: 'SS'
+  },
+  {
+    name: 'Deb G.',
+    location: 'Spokane Valley, WA',
+    rating: 5,
+    text: 'Great, awesome. Quick, friendly, efficient, and professional. The whole process was easy.',
+    service: 'House Painting',
+    image: 'DG'
+  },
+  {
+    name: 'Robyn Antoine',
+    location: 'Spokane Valley, WA',
+    rating: 5,
+    text: 'Brandon was so helpful and didn\'t try to sucker us into anything unnecessary.',
+    service: 'Attic Evaluation',
+    image: 'RA'
+  },
+  {
+    name: 'Alexander Osterberg',
+    location: 'Spokane, WA',
+    rating: 5,
+    text: 'Crew did a great job changing out an electrical panel.',
+    service: 'Electrical Panel',
+    image: 'AO'
   }
 ];
 

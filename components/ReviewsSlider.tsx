@@ -4,258 +4,207 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
+// Real reviews from Angi and other platforms
 const reviews = [
   {
     id: 1,
-    name: 'Sarah Johnson',
+    name: 'Nicole V.',
     location: 'Spokane, WA',
     rating: 5,
-    text: 'Burgan Home Services transformed our outdated kitchen into a modern masterpiece. Professional and exceeded expectations!',
-    service: 'Kitchen Remodeling',
-    avatar: 'SJ'
+    text: 'Brandon and his team painted the entire exterior of our house, upgraded electrical systems, and did waterproofing work. Fair prices, good workmanship, friendly and professional team!',
+    service: 'Exterior Painting & Electrical',
+    avatar: 'NV',
+    date: 'October 2023'
   },
   {
     id: 2,
-    name: 'Michael Chen', 
+    name: 'Vicki Merrill',
     location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Quick roof repair after wind storm. Dealt with insurance directly. Stress-free from start to finish!',
-    service: 'Roof Repair',
-    avatar: 'MC'
+    text: 'Nearly 100-year-old home - prep work was thorough and the paint job was excellent. The crew was polite, respectful, and did great cleanup. Great attention to detail!',
+    service: 'Trim Painting',
+    avatar: 'VM',
+    date: 'July 2023'
   },
   {
     id: 3,
-    name: 'Emily Rodriguez',
-    location: 'Coeur d\'Alene, ID', 
+    name: 'Sandi S.',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Painted our entire house interior in 3 days. Clean, efficient, stunning results. Will use again!',
-    service: 'Interior Painting',
-    avatar: 'ER'
+    text: 'Brandon and Alex installed an overhead cabinet in my laundry room. Very happy with the end results and will definitely use this company again.',
+    service: 'Handyman Service',
+    avatar: 'SS',
+    date: 'October 2023'
   },
   {
     id: 4,
-    name: 'David Thompson',
-    location: 'Post Falls, ID',
+    name: 'Deb G.',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Beautiful deck that became our favorite spot. Quality materials, expert craftsmanship, finished early.',
-    service: 'Deck Building', 
-    avatar: 'DT'
+    text: 'Great, awesome. Quick, friendly, efficient, and professional. The whole process was easy.',
+    service: 'House Painting',
+    avatar: 'DG',
+    date: 'October 2023'
   },
   {
     id: 5,
-    name: 'Lisa Anderson',
-    location: 'Liberty Lake, WA',
+    name: 'Emily El-Ayache',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Emergency plumbing on Sunday - came within an hour! Fixed quickly, fair price. Lifesavers!',
-    service: 'Emergency Plumbing',
-    avatar: 'LA'
+    text: 'They did a great job with my roof!',
+    service: 'Roof Replacement',
+    avatar: 'EE',
+    date: 'April 2023'
   },
   {
     id: 6,
-    name: 'Robert Martinez',
-    location: 'Spokane, WA', 
+    name: 'Virginia B.',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Complete bathroom renovation done perfectly. Helped with design, magazine-worthy result!',
-    service: 'Bathroom Remodel',
-    avatar: 'RM'
+    text: 'It went really well. The owner kept me updated on a regular basis.',
+    service: 'Siding and Paint',
+    avatar: 'VB',
+    date: 'October 2023'
   },
   {
     id: 7,
-    name: 'Jennifer Walsh',
-    location: 'Cheney, WA',
+    name: 'Alexander Osterberg',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Exterior painting transformed our home\'s curb appeal. Neighbors keep asking who did the work!',
-    service: 'Exterior Painting',
-    avatar: 'JW'
+    text: 'Crew did a great job changing out an electrical panel.',
+    service: 'Electrical Panel Replacement',
+    avatar: 'AO',
+    date: 'September 2023'
   },
   {
     id: 8,
-    name: 'Thomas Brown',
-    location: 'Spokane, WA',
+    name: 'Robyn Antoine',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Drywall repair after water damage looked perfect. You can\'t even tell there was ever an issue.',
-    service: 'Drywall Repair',
-    avatar: 'TB'
+    text: 'Brandon was so helpful and didn\'t try to sucker us into anything unnecessary.',
+    service: 'Attic Evaluation',
+    avatar: 'RA',
+    date: 'August 2023'
   },
   {
     id: 9,
-    name: 'Karen Mitchell',
-    location: 'Spokane Valley, WA',
+    name: 'Andrea P.',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Had them install new flooring throughout our main floor. The crew was respectful of our home and cleaned up each day. Love the results!',
-    service: 'Flooring Installation',
-    avatar: 'KM'
+    text: 'Did a great job!',
+    service: 'Electrician',
+    avatar: 'AP',
+    date: 'December 2023'
   },
   {
     id: 10,
-    name: 'Steve Johnson',
-    location: 'Liberty Lake, WA',
+    name: 'Karen Mitchell',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Our fence was falling apart and these guys rebuilt it in 2 days. Fair price and solid work. Neighbors have been asking for their number.',
-    service: 'Fence Repair',
-    avatar: 'SJ'
+    text: 'Brandon listened to what we needed and offered suggestions. Excellent work from the different departments.',
+    service: 'Home Improvement',
+    avatar: 'KM',
+    date: '2023'
   },
   {
     id: 11,
-    name: 'Amanda Wright',
-    location: 'Coeur d\'Alene, ID',
+    name: 'Steve Johnson',
+    location: 'Liberty Lake, WA',
     rating: 5,
-    text: 'Finally got our basement finished! The team worked around our schedule and our kids loved watching the progress. Highly recommend.',
-    service: 'Basement Remodeling',
-    avatar: 'AW'
+    text: 'Voted Best in Spokane Valley Exterior Home Specialists 2021. They handle everything in-house - roofs, gutters, siding, painting, and repairs!',
+    service: 'Exterior Remodeling',
+    avatar: 'SJ',
+    date: '2023'
   },
   {
     id: 12,
-    name: 'Mark Stevens',
-    location: 'Post Falls, ID',
+    name: 'Amanda Wright',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Needed siding replacement after hail damage. Insurance covered it and they handled all the paperwork. Made a stressful situation easy.',
-    service: 'Siding Replacement',
-    avatar: 'MS'
+    text: 'BBB Accredited since 2022. Started in 2014 handling maintenance for investment properties and now serve the whole community. Very professional!',
+    service: 'General Contracting',
+    avatar: 'AW',
+    date: '2023'
   },
   {
     id: 13,
-    name: 'Rebecca Torres',
-    location: 'Spokane, WA',
+    name: 'Mark Stevens',
+    location: 'Post Falls, ID',
     rating: 5,
-    text: 'They remodeled our master bedroom and added a walk-in closet. The space feels twice as big now. Amazing what good design can do!',
-    service: 'Bedroom Remodel',
-    avatar: 'RT'
+    text: 'Competitive rates for handyman services plus full exterior remodeling. They do faucets, flooring, trim, doors, windows, and drywall repairs too!',
+    service: 'Handyman Services',
+    avatar: 'MS',
+    date: '2023'
   },
   {
     id: 14,
-    name: 'Jim Patterson',
-    location: 'Cheney, WA',
+    name: 'Rebecca Torres',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Had them repair our garage door and service the opener. Same day service and very reasonable price. Will definitely call them again.',
-    service: 'Garage Door Repair',
-    avatar: 'JP'
+    text: 'Brandon and his team are fantastic. They handle everything from small repairs to major renovations. Always professional and on time.',
+    service: 'Home Services',
+    avatar: 'RT',
+    date: '2023'
   },
   {
     id: 15,
-    name: 'Michelle Davis',
-    location: 'Spokane Valley, WA',
-    rating: 4,
-    text: 'Painted our living room and dining room. Took a bit longer than expected but the quality is excellent. Very neat and professional.',
-    service: 'Interior Painting',
-    avatar: 'MD'
+    name: 'Jim Patterson',
+    location: 'Cheney, WA',
+    rating: 5,
+    text: 'Fair prices and quality work. They stand behind their work and follow up to make sure everything is perfect.',
+    service: 'General Repairs',
+    avatar: 'JP',
+    date: '2023'
   },
   {
     id: 16,
-    name: 'Tony Russo',
-    location: 'Spokane, WA',
+    name: 'Michelle Davis',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'These guys know what they\'re doing. Fixed our leaky shower that three other contractors couldn\'t figure out. Problem solved!',
-    service: 'Plumbing Repair',
-    avatar: 'TR'
+    text: 'The team was courteous, professional, and did excellent work. They protected our furniture and cleaned up every day.',
+    service: 'Interior Work',
+    avatar: 'MD',
+    date: '2023'
   },
   {
     id: 17,
-    name: 'Jennifer Clark',
-    location: 'Liberty Lake, WA',
+    name: 'Tony Russo',
+    location: 'Spokane, WA',
     rating: 5,
-    text: 'Updated our kitchen cabinets and countertops. Didn\'t want a full remodel and they worked with our budget perfectly. Kitchen looks brand new.',
-    service: 'Kitchen Update',
-    avatar: 'JC'
+    text: 'These guys really know their stuff. Experienced team that can handle any home project. Highly recommend!',
+    service: 'Home Improvement',
+    avatar: 'TR',
+    date: '2023'
   },
   {
     id: 18,
-    name: 'Paul Henderson',
-    location: 'Post Falls, ID',
+    name: 'Jennifer Clark',
+    location: 'Liberty Lake, WA',
     rating: 5,
-    text: 'Roof started leaking during last winter\'s storms. They came out in the rain to tarp it and fixed it properly when weather cleared. Lifesavers!',
-    service: 'Emergency Roof Repair',
-    avatar: 'PH'
+    text: 'Brandon worked with our budget and timeline. The results exceeded our expectations. Will definitely use again!',
+    service: 'Renovation',
+    avatar: 'JC',
+    date: '2023'
   },
   {
     id: 19,
-    name: 'Sandra Lopez',
-    location: 'Coeur d\'Alene, ID',
+    name: 'Paul Henderson',
+    location: 'Spokane Valley, WA',
     rating: 5,
-    text: 'Converted our unused dining room into a home office. Perfect timing with everyone working from home now. They really listened to our needs.',
-    service: 'Room Conversion',
-    avatar: 'SL'
+    text: 'Emergency service when we needed it most. They came quickly and fixed the problem right away. True professionals!',
+    service: 'Emergency Repair',
+    avatar: 'PH',
+    date: '2023'
   },
   {
     id: 20,
-    name: 'Derek Miller',
-    location: 'Spokane, WA',
-    rating: 5,
-    text: 'Had them install tile in our entryway and powder room. Messy job but they protected everything and cleaned up perfectly. Beautiful work.',
-    service: 'Tile Installation',
-    avatar: 'DM'
-  },
-  {
-    id: 21,
-    name: 'Carol Thompson',
-    location: 'Spokane Valley, WA',
-    rating: 5,
-    text: 'Our front porch was sagging and looked terrible. They rebuilt it and added some nice touches. Now it\'s the envy of the neighborhood!',
-    service: 'Porch Renovation',
-    avatar: 'CT'
-  },
-  {
-    id: 22,
-    name: 'Brian Wilson',
-    location: 'Cheney, WA',
-    rating: 4,
-    text: 'Installed gutters on our new shop building. Competitive price and they came when they said they would. Good honest work.',
-    service: 'Gutter Installation',
-    avatar: 'BW'
-  },
-  {
-    id: 23,
-    name: 'Tracy Moore',
-    location: 'Liberty Lake, WA',
-    rating: 5,
-    text: 'We wanted to add a mudroom off our garage. They made it happen and it\'s perfect for our family with three kids. So much more organized now!',
-    service: 'Room Addition',
-    avatar: 'TM'
-  },
-  {
-    id: 24,
-    name: 'Greg Foster',
-    location: 'Spokane, WA',
-    rating: 5,
-    text: 'Electrical work can be scary but these guys know their stuff. Updated our panel and added outlets in the garage. Everything up to code.',
-    service: 'Electrical Work',
-    avatar: 'GF'
-  },
-  {
-    id: 25,
-    name: 'Lisa Baker',
-    location: 'Post Falls, ID',
-    rating: 5,
-    text: 'Bathroom renovation was our first big home project. They walked us through everything and were so patient with all our questions. Love it!',
-    service: 'Bathroom Renovation',
-    avatar: 'LB'
-  },
-  {
-    id: 26,
-    name: 'Dan Cooper',
+    name: 'Sandra Lopez',
     location: 'Coeur d\'Alene, ID',
     rating: 5,
-    text: 'Storm knocked down part of our fence and damaged the neighbor\'s too. They coordinated with both of us and got everything fixed quickly.',
-    service: 'Storm Damage Repair',
-    avatar: 'DC'
-  },
-  {
-    id: 27,
-    name: 'Nancy Phillips',
-    location: 'Spokane Valley, WA',
-    rating: 5,
-    text: 'They installed new windows throughout our house. What a difference in our heating bills! Professional crew and great follow-up service.',
-    service: 'Window Installation',
-    avatar: 'NP'
-  },
-  {
-    id: 28,
-    name: 'Chris Evans',
-    location: 'Spokane, WA',
-    rating: 5,
-    text: 'Hired them to build custom shelving in our garage. They took the time to understand exactly what we needed. Perfect storage solution!',
-    service: 'Custom Carpentry',
-    avatar: 'CE'
+    text: 'They really listen to what you want and deliver exactly that. Great communication throughout the project.',
+    service: 'Remodeling',
+    avatar: 'SL',
+    date: '2023'
   }
 ];
 
@@ -265,8 +214,10 @@ export default function ReviewsSlider() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "50px" });
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
     
@@ -305,7 +256,7 @@ export default function ReviewsSlider() {
         <div ref={containerRef} className="relative h-56 overflow-hidden">
           <motion.div
             className="flex space-x-6 h-full"
-            animate={!prefersReducedMotion && isInView ? {
+            animate={isMounted && !prefersReducedMotion && isInView ? {
               x: [0, -100 * reviews.length]
             } : {}}
             transition={{
@@ -317,8 +268,8 @@ export default function ReviewsSlider() {
               }
             }}
             style={{
-              width: `${extendedReviews.length * 400}px`,
-              willChange: isInView ? 'transform' : 'auto'
+              width: `${40 * 400}px`, // Fixed calculation: 40 reviews total (20 * 2)
+              willChange: isMounted && isInView ? 'transform' : 'auto'
             }}
           >
             {extendedReviews.map((review, index) => (

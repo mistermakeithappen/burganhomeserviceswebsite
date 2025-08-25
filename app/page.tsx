@@ -7,14 +7,12 @@ import TrustBadges from '@/components/TrustBadges';
 import Gallery from '@/components/Gallery';
 import ContactForm from '@/components/ContactForm';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import EmergencyBanner from '@/components/EmergencyBanner';
 import TransparentPricing from '@/components/TransparentPricing';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      <EmergencyBanner />
       <Hero />
       <ReviewsSlider />
       <TrustBadges />
