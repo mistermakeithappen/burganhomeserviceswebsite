@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {/* Author */}
                 <div className="flex items-center gap-4 mt-8">
                   <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-slate-900 font-bold text-lg">
-                    {post.author.split(' ').map(n => n[0]).join('')}
+                    {post.author.split(' ').map((n: string) => n[0]).join('')}
                   </div>
                   <div>
                     <p className="font-semibold text-white">Written by</p>
@@ -247,7 +247,7 @@ export default async function BlogPostPage({ params }: Props) {
                     blockquote: ({children}) => (
                       <blockquote className="relative my-10 pl-8 pr-4 py-4 bg-slate-50 border-l-4 border-yellow-500 rounded-r-lg">
                         <div className="absolute -left-3 top-4 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-2xl font-serif">"</span>
+                          <span className="text-white text-2xl font-serif">&quot;</span>
                         </div>
                         <div className="text-xl italic text-slate-700 ml-4">
                           {children}
@@ -331,7 +331,7 @@ export default async function BlogPostPage({ params }: Props) {
                     Tagged With
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
+                    {post.tags.map((tag: string) => (
                       <span
                         key={tag}
                         className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium transition-colors cursor-pointer"
@@ -390,7 +390,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                  {relatedPosts.map((relatedPost) => (
+                  {relatedPosts.map((relatedPost: any) => (
                     <Link
                       key={relatedPost.id}
                       href={`/blog/${relatedPost.slug}`}

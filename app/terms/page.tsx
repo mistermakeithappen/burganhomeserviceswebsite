@@ -20,7 +20,7 @@ export default function TermsOfService() {
               <strong>Effective Date:</strong> January 1, 2024
             </p>
             <p className="text-gray-700 mb-6">
-              These Terms of Service ("Terms") govern your use of Burgan Home Services' website and services. By accessing or using our services, you agree to be bound by these Terms.
+              These Terms of Service (&quot;Terms&quot;) govern your use of Burgan Home Services&apos; website and services. By accessing or using our services, you agree to be bound by these Terms.
             </p>
           </section>
 
@@ -83,7 +83,7 @@ export default function TermsOfService() {
               <li>Pre-existing conditions or defects</li>
               <li>Damage caused by acts of nature or circumstances beyond our control</li>
               <li>Indirect, incidental, or consequential damages</li>
-              <li>Damage resulting from customer's failure to maintain completed work</li>
+              <li>Damage resulting from customer&apos;s failure to maintain completed work</li>
             </ul>
           </section>
 

@@ -239,10 +239,30 @@ export default function Gallery() {
                   </div>
                   
                   <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors">
+                    <button 
+                      onClick={() => {
+                        setSelectedProject(null);
+                        // Scroll to contact form section
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                          contactSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
+                    >
                       Get a Similar Quote
                     </button>
-                    <button className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-lg font-bold hover:bg-indigo-50 transition-colors">
+                    <button 
+                      onClick={() => {
+                        // Close modal and filter to this category
+                        const projectCategory = selectedProject?.category;
+                        setSelectedProject(null);
+                        if (projectCategory && projectCategory !== selectedCategory) {
+                          setSelectedCategory(projectCategory);
+                        }
+                      }}
+                      className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-lg font-bold hover:bg-indigo-50 transition-colors"
+                    >
                       View More Projects
                     </button>
                   </div>

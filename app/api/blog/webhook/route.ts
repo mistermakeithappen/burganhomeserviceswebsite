@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 // Simple auth token - in production, use environment variable
 const WEBHOOK_SECRET = process.env.BLOG_WEBHOOK_SECRET || 'your-secret-token-here';
@@ -54,7 +54,12 @@ export async function POST(request: NextRequest) {
     };
 
     // Insert into Supabase
-    const supabase = createClient();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Supabase client is not initialized' },
+        { status: 500 }
+      );
+    }
     
     const { data, error } = await supabase
       .from('blog_posts')

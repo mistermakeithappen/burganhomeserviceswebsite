@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
               <strong>Effective Date:</strong> January 1, 2024
             </p>
             <p className="text-gray-700 mb-6">
-              Burgan Home Services ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Burgan Home Services (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
           </section>
 
@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4 text-slate-900">Children's Privacy</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-slate-900">Children&apos;s Privacy</h2>
             <p className="text-gray-700 mb-4">
               Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18.
             </p>
@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-slate-900">Changes to This Privacy Policy</h2>
             <p className="text-gray-700 mb-4">
-              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.
+              We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Effective Date&quot; at the top.
             </p>
           </section>
 

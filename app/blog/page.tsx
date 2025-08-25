@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
 import Header from '@/components/Header';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export const metadata: Metadata = {
   title: 'Blog | Home Improvement Tips & Guides | Burgan Home Services',
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 
 async function getBlogPosts() {
   const supabase = getSupabaseClient();
+  
+  if (!supabase) {
+    console.warn('Supabase client is not initialized');
+    return [];
+  }
   
   const { data: posts, error } = await supabase
     .from('blog_posts')
@@ -29,6 +35,11 @@ async function getBlogPosts() {
 
 async function getCategories() {
   const supabase = getSupabaseClient();
+  
+  if (!supabase) {
+    console.warn('Supabase client is not initialized');
+    return [];
+  }
   
   const { data: categories, error } = await supabase
     .from('blog_categories')
@@ -60,7 +71,7 @@ export default async function BlogPage() {
             Home Improvement Blog
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl">
-            Expert tips, guides, and insights from Spokane's trusted home service professionals
+            Expert tips, guides, and insights from Spokane&apos;s trusted home service professionals
           </p>
         </div>
       </div>
@@ -75,12 +86,12 @@ export default async function BlogPage() {
                   Coming Soon!
                 </h2>
                 <p className="text-gray-600">
-                  We're working on bringing you valuable home improvement content. Check back soon!
+                  We&apos;re working on bringing you valuable home improvement content. Check back soon!
                 </p>
               </div>
             ) : (
               <div className="grid gap-8">
-                {posts.map((post) => (
+                {posts.map((post: any) => (
                   <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                     {post.featured_image_url && (
                       <Link href={`/blog/${post.slug}`}>
@@ -129,7 +140,7 @@ export default async function BlogPage() {
                       
                       {post.tags && post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-4">
-                          {post.tags.map((tag) => (
+                          {post.tags.map((tag: string) => (
                             <span
                               key={tag}
                               className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
@@ -161,7 +172,7 @@ export default async function BlogPage() {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-4 text-slate-900">Categories</h3>
                 <ul className="space-y-2">
-                  {categories.map((category) => (
+                  {categories.map((category: any) => (
                     <li key={category.id}>
                       <Link
                         href={`/blog/category/${category.slug}`}
@@ -178,7 +189,7 @@ export default async function BlogPage() {
               <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-lg shadow-lg p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">Need Help With Your Project?</h3>
                 <p className="mb-4">
-                  Get a free quote from Spokane's most trusted home service professionals.
+                  Get a free quote from Spokane&apos;s most trusted home service professionals.
                 </p>
                 <Link
                   href="/#contact"
@@ -189,26 +200,7 @@ export default async function BlogPage() {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h3 className="text-xl font-bold mb-3 text-slate-900">Stay Updated</h3>
-                <p className="text-gray-600 mb-4">
-                  Get the latest home improvement tips delivered to your inbox.
-                </p>
-                <form className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-yellow-400 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              </div>
+              <NewsletterForm />
             </div>
           </aside>
         </div>
